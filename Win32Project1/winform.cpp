@@ -1,5 +1,8 @@
 
 #include<windows.h>
+
+#pragma comment(lib,"Win32dll.lib")
+
 HINSTANCE g_hInstance = 0;
 //窗口处理函数
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -15,7 +18,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);
 }
 //注册窗口类
-BOOL Register(LPSTR lpClassName, WNDPROC wndProc)
+/*BOOL Register(LPSTR lpClassName, WNDPROC wndProc)
 {
 	WNDCLASSEX wce = { 0 };
 	wce.cbSize = sizeof(wce);
@@ -35,7 +38,7 @@ BOOL Register(LPSTR lpClassName, WNDPROC wndProc)
 		return FALSE;
 	return true;
 
-}
+}*/
 //创建主窗口
 HWND CreateMain(LPSTR lpClassName, LPSTR lpWndName)
 {
@@ -59,6 +62,7 @@ void Message()
 		DispatchMessage(&nMsg);
 	}
 }
+int add(int x, int y);
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
 	_In_ LPWSTR    lpCmdLine,
@@ -67,13 +71,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	// TODO: Place code here.
 
 	g_hInstance = hInstance;
-	BOOL nRet = Register("Main", WndProc);
+	/*BOOL nRet = Register("Main", WndProc);
 	if (!nRet)
 	{
 		MessageBox(NULL, "注册失败", "Infor", MB_OK);
 		return 0;
-	}
-	HWND hWnd = CreateMain("Main", "window");
+	}*/
+	add(3, 4);
+	//HWND hWnd = CreateMain("Button", "我是一个按钮");
+	HWND hWnd = CreateMain("Button", "我是一个全局窗口类");
 	Display(hWnd);
 	Message();
 	return 0;
