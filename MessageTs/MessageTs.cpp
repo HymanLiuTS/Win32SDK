@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include<stdio.h>
 #include "MessageTs.h"
 
 HINSTANCE g_hInstance = 0;  
@@ -14,7 +15,41 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		PostQuitMessage(0);//可以使GetMessage返回0  
 		break; 
 	case  WM_CREATE:
-		MessageBox(NULL,"WM_CREATE消息被处理了","消息处理",MB_OK);
+	{
+		CREATESTRUCT crt = *((CREATESTRUCT*)lParam);
+		char buf[256] = {0};
+		sprintf(buf,"创建的窗口类名称是%s，窗口名称是%s",crt.lpszClass,crt.lpszName);
+		MessageBox(NULL, buf, "消息处理", MB_OK);
+	}
+	case WM_QUIT:
+	{
+		int param = (int)wParam;
+		char buf[256];
+		sprintf(buf, "进程退出，退出码:%d", param);
+		MessageBox(NULL, buf, "消息处理", MB_OK);
+	}
+	case WM_SYSCOMMAND:
+	{
+		if (wParam == SC_MAXIMIZE)
+		{
+			short x = LOWORD(lParam);
+			short y = HIWORD(lParam);
+			char buf[256];
+			sprintf(buf, "窗口最大化，x坐标:%d，y坐标:%d", x,y);
+			MessageBox(NULL, buf, "消息处理", MB_OK);
+		}
+	}
+	case WM_SIZE:
+	{
+		if (wParam == SIZE_MAXIMIZED)
+		{
+			short width = LOWORD(lParam);
+			short hight = HIWORD(lParam);
+			char buf[256];
+			sprintf(buf, "窗口最大化，高度:%d，宽度:%d", hight, width);
+			MessageBox(NULL, buf, "消息处理", MB_OK);
+		}
+	}
 	default:  
 		break;  
 	}  
