@@ -1,10 +1,3 @@
-// MessageTs.cpp : 定义应用程序的入口点。
-//
-
-#include "stdafx.h"
-#include<stdio.h>
-#include "MessageTs.h"
-
 HINSTANCE g_hInstance = 0;  
 //窗口处理函数  
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)  

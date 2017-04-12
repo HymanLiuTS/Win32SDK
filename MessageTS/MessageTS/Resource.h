@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by MessageTs.rc
+// Used by MessageTS.rc
 //
 
 #define IDS_APP_TITLE			103
