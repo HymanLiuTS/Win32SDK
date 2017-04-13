@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{DAAEF214-898F-4A18-8099-6178EF659E73}</ProjectGuid>
+    <ProjectGuid>{7984928A-4559-4F1A-96C2-837B0727120C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>MessageTS</RootNamespace>
+    <RootNamespace>PaintTS</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -72,25 +72,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="MessageTS.ico" />
+    <None Include="PaintTS.ico" />
     <None Include="ReadMe.txt" />
     <None Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MessageTS.h" />
+    <ClInclude Include="PaintTS.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MessageTS.cpp" />
+    <ClCompile Include="PaintTS.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MessageTS.rc" />
+    <ResourceCompile Include="PaintTS.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

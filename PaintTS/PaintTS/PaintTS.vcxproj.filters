@@ -19,7 +19,7 @@
     <None Include="small.ico">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="MessageTS.ico">
+    <None Include="PaintTS.ico">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
@@ -33,7 +33,7 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MessageTS.h">
+    <ClInclude Include="PaintTS.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,12 +41,12 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MessageTS.cpp">
+    <ClCompile Include="PaintTS.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MessageTS.rc">
+    <ResourceCompile Include="PaintTS.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>

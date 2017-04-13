@@ -1,25 +1,45 @@
-// MessageTS.cpp : 定义应用程序的入口点。
+// PaintTS.cpp : 定义应用程序的入口点。
 //
 
 #include "stdafx.h"
+#include "PaintTS.h"
 #include "stdio.h"
-#include "MessageTS.h"
 
-HANDLE hOutput;
 HINSTANCE g_hInstance = 0;  
+HANDLE hOutput;
+void DrawRect()
+{
+
+}
+
 //窗口处理函数  
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)  
 {  
+	
 	switch (uMsg)  
 	{  
 	case WM_DESTROY:  
 		PostQuitMessage(0);//可以使GetMessage返回0  
-		break; 
+		break;
+	case  WM_PAINT:
+		{
+			PAINTSTRUCT pt;
+			HDC hdc;
+			hdc=BeginPaint(hWnd,&pt);
+			Rectangle(hdc,0,0,100,100);
+			EndPaint(hWnd,&pt);
+		}
+	case WM_LBUTTONDOWN:
+		{
+			//InvalidateRect(hWnd,NULL,true);
+		}
+		break;
 	default:  
 		break;  
 	}  
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);  
 }  
+
 //注册窗口类  
 BOOL Register(LPSTR lpClassName, WNDPROC wndProc)  
 {  
@@ -56,23 +76,15 @@ void Display(HWND hWnd)
 	UpdateWindow(hWnd);  
 }  
 //消息循环  
-void Message(HWND hWnd)  
+void Message()  
 {  
-	MSG nMsg = { 0 };
-	while (GetMessage(&nMsg, hWnd, 0, 0))  
+	MSG nMsg = { 0 };  
+	while (GetMessage(&nMsg, NULL, 0, 0))  
 	{  
 		TranslateMessage(&nMsg);  
 		DispatchMessage(&nMsg);  
-
-		if(nMsg.message == WM_PAINT)
-		{
-			char buff[30]={};
-			sprintf(buff,"处理消息%d\n",nMsg.message);
-			WriteConsole(hOutput,buff,sizeof(buff),NULL,NULL);
-		}
 	}  
 }  
-
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,  
 	_In_opt_ HINSTANCE hPrevInstance,  
 	_In_ LPWSTR    lpCmdLine,  
@@ -89,6 +101,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	}  
 	HWND hWnd = CreateMain("Main", "window");  
 	Display(hWnd);  
-	Message(hWnd);  
+	Message();  
 	return 0;  
 }  
